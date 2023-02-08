@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.10.7 on win32)" generated="20230206 21:41:17.793" rpa="false" schemaversion="3">
+<suite id="s1" name="TC SharePoint login" source="C:\Users\vinod\PycharmProjects\CSC\TestScripts\Login\TC_SharePoint_login.robot">
+<test id="s1-t1" name="TC_01_login with valid credentials for sharepoint" line="17">
+<kw name="Open the browser" library="Practice_leader">
+<kw name="Open Browser" library="library">
+<arg>${url}</arg>
+<status status="PASS" starttime="20230206 21:41:19.118" endtime="20230206 21:41:24.355"/>
+</kw>
+<status status="PASS" starttime="20230206 21:41:19.117" endtime="20230206 21:41:24.355"/>
+</kw>
+<kw name="login Sharepoint application" library="Practice_leader">
+<arg>${microsoft_username}</arg>
+<arg>${microsoft_password}</arg>
+<kw name="Pop Up Username" library="library">
+<arg>${microsoft_username}</arg>
+<status status="PASS" starttime="20230206 21:41:24.356" endtime="20230206 21:41:25.614"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230206 21:41:28.623" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230206 21:41:25.614" endtime="20230206 21:41:28.623"/>
+</kw>
+<kw name="Pop Up Password" library="library">
+<arg>${microsoft_password}</arg>
+<status status="PASS" starttime="20230206 21:41:28.623" endtime="20230206 21:41:38.772"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>15</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230206 21:41:53.781" level="INFO">Slept 15 seconds</msg>
+<status status="PASS" starttime="20230206 21:41:38.772" endtime="20230206 21:41:53.781"/>
+</kw>
+<status status="PASS" starttime="20230206 21:41:24.356" endtime="20230206 21:41:53.781"/>
+</kw>
+<kw name="Launch Mobile Application" library="Appium">
+<kw name="Open Application" library="AppiumLibrary">
+<arg>${APPIUM_SERVER}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>appPackage=${APP_PACKAGE}</arg>
+<arg>appActivity=${APP_ACTIVITY}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" starttime="20230206 21:41:53.783" endtime="20230206 21:42:13.831"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>30</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230206 21:42:43.835" level="INFO">Slept 30 seconds</msg>
+<status status="PASS" starttime="20230206 21:42:13.832" endtime="20230206 21:42:43.836"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>xpath=//android.widget.TextView[@text='Vk']</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20230206 21:42:43.841" level="INFO">Clicking element 'xpath=//android.widget.TextView[@text='Vk']'.</msg>
+<msg timestamp="20230206 21:42:47.794" level="INFO">xpath criteria: //android.widget.TextView[@text='Vk']</msg>
+<status status="PASS" starttime="20230206 21:42:43.837" endtime="20230206 21:42:47.794"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>15</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230206 21:43:02.798" level="INFO">Slept 15 seconds</msg>
+<status status="PASS" starttime="20230206 21:42:47.794" endtime="20230206 21:43:02.798"/>
+</kw>
+<kw name="Get Element Attribute" library="AppiumLibrary">
+<var>${message}</var>
+<arg>id=com.android.messaging:id/message_text</arg>
+<arg>text</arg>
+<doc>Get element attribute using given attribute: name, value,...</doc>
+<msg timestamp="20230206 21:43:05.649" level="INFO">Element 'id=com.android.messaging:id/message_text' attribute 'text' value 'SMS passcodes (will expire in 1 hour): 1488485' </msg>
+<msg timestamp="20230206 21:43:05.649" level="INFO">criteria is com.android.messaging:id/message_text</msg>
+<msg timestamp="20230206 21:43:05.649" level="INFO">${message} = SMS passcodes (will expire in 1 hour): 1488485</msg>
+<status status="PASS" starttime="20230206 21:43:02.799" endtime="20230206 21:43:05.649"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${message}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230206 21:43:05.649" endtime="20230206 21:43:05.650"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${number_only}</var>
+<arg>"${message}".split(" ")[7]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230206 21:43:05.650" level="INFO">${number_only} = 1488485</msg>
+<status status="PASS" starttime="20230206 21:43:05.650" endtime="20230206 21:43:05.650"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${number_only}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230206 21:43:05.650" endtime="20230206 21:43:05.652"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${var1}</var>
+<arg>${number_only}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230206 21:43:05.652" level="INFO">${var1} = 1488485</msg>
+<status status="PASS" starttime="20230206 21:43:05.652" endtime="20230206 21:43:05.652"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${var1}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230206 21:43:05.652" level="INFO">${var1} = 1488485</msg>
+<status status="PASS" starttime="20230206 21:43:05.652" endtime="20230206 21:43:05.652"/>
+</kw>
+<status status="PASS" starttime="20230206 21:41:53.782" endtime="20230206 21:43:05.652"/>
+</kw>
+<kw name=" Enter OTP value in Textbox" library="Practice_leader">
+<kw name="Text Me Button" library="library">
+<arg>${var1}</arg>
+<status status="PASS" starttime="20230206 21:43:05.654" endtime="20230206 21:43:05.720"/>
+</kw>
+<kw name="Sign In Button" library="library">
+<msg timestamp="20230206 21:43:23.915" level="INFO">No element present for the locator //*[@id='idSIButton9']</msg>
+<msg timestamp="20230206 21:43:23.916" level="FAIL">UnboundLocalError: local variable 'waitElement' referenced before assignment</msg>
+<status status="FAIL" starttime="20230206 21:43:05.721" endtime="20230206 21:43:23.916"/>
+</kw>
+<status status="FAIL" starttime="20230206 21:43:05.653" endtime="20230206 21:43:23.917"/>
+</kw>
+<status status="FAIL" starttime="20230206 21:41:19.116" endtime="20230206 21:43:23.917">UnboundLocalError: local variable 'waitElement' referenced before assignment</status>
+</test>
+<status status="FAIL" starttime="20230206 21:41:17.794" endtime="20230206 21:43:23.918"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="TC SharePoint login">TC SharePoint login</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230206 21:41:19.102" level="WARN">Imported library 'C:\Users\vinod\PycharmProjects\CSC\Py\properties.py' contains no keywords.</msg>
+<msg timestamp="20230206 21:41:19.111" level="ERROR">Error in file 'C:\Users\vinod\PycharmProjects\CSC\Pageclass\Practice_leader.robot' on line 15: Invalid resource file extension '.py'. Supported extensions are '.resource', '.robot', '.txt', '.tsv', '.rst' and '.rest'.</msg>
+</errors>
+</robot>
